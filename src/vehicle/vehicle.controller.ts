@@ -20,7 +20,7 @@ export class VehicleController {
   constructor(private readonly vehicleService: VehicleService) {}
 
   @Post()
-  //   @HttpCode(HttpStatus.CREATED)
+  @HttpCode(HttpStatus.CREATED)
   async create(@Body() CreateVehicleDto: CreateVehiclesDto): Promise<Vehicle> {
     try {
       const createVehicle = await this.vehicleService.create(CreateVehicleDto);
@@ -36,7 +36,7 @@ export class VehicleController {
   }
 
   @Get()
-  //   @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.OK)
   async findAll(): Promise<Vehicle[]> {
     try {
       const Vehicle = await this.vehicleService.findAll();
@@ -47,7 +47,7 @@ export class VehicleController {
   }
 
   @Get(':id')
-  //   @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.OK)
   async findOne(@Param('id') id: string): Promise<Vehicle> {
     try {
       const Vehicle = await this.vehicleService.findOne(id);
@@ -62,7 +62,7 @@ export class VehicleController {
   }
 
   @Patch(':id')
-  //   @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.OK)
   async update(
     @Param('id') id: string,
     @Body() updateVehicleDto: UpdateVehicleDto,
@@ -83,7 +83,7 @@ export class VehicleController {
   }
 
   @Delete(':id')
-  //   @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.OK)
   async remove(@Param('id') id: string): Promise<void> {
     try {
       await this.vehicleService.remove(id);

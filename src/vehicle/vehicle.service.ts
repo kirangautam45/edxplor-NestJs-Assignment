@@ -1,4 +1,4 @@
-import { HttpStatus, Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Vehicle } from './vehicle.entity';
@@ -47,12 +47,12 @@ export class VehicleService {
     updateVehicleDto: UpdateVehicleDto,
   ): Promise<Vehicle> {
     try {
-     const existingVehicle = await this.findOne(id);
+      const existingVehicle = await this.findOne(id);
 
-     if (!existingVehicle) {
-       throw new NotFoundException(`Vehicle with ID ${id} not found`);
-     }
-      
+      if (!existingVehicle) {
+        throw new NotFoundException(`Vehicle with ID ${id} not found`);
+      }
+
       await this.vehicleRepository.update(id, updateVehicleDto);
       return this.findOne(id);
     } catch (error) {

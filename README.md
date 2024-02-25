@@ -1,73 +1,47 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# EDXPLOR
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is the Backed in system part of EDXPLOR
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## In .env
 
-## Description
+DB_HOST=localhost
+DB_PORT=5432
+DB_USERNAME=nest //PostgreSQL UseName
+DB_PASSWORD=admin //PostgreSQL Password
+DB_DATABASE=vehicle //PostgreSQL Database
+JWT_SECRET=B[T@\_6*-M2ux\^u)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+### Setup
 
-## Installation
+- Clone the repository: https://github.com/kirangautam45/edxplor-NestJs-Assignment.git
 
-```bash
-$ yarn install
-```
+- Install dependencies: `yarn install`
+  To start the server, run `yarn start` or `yarn start:dev`
 
-## Running the app
+### endpoint
+## User Endpoint
 
-```bash
-# development
-$ yarn run start
+-Register user:POST http://localhost:3000/auth/signup
+-Login User: POST http://localhost:3000/auth/signin
 
-# watch mode
-$ yarn run start:dev
+## Vehicles Endpoint
 
-# production mode
-$ yarn run start:prod
-```
+- create new Vehicles:POST http://localhost:3000/vehicle
+  Same Data: {
+  "make":"SUV",
+  "model":"2024",
+  "year":"2024",
+  "registration_number":"NA 1 PA",
+  "current_status":"ACTIVE",
+  "location":"Bharatpur"
+  }
+- Get all Data: GET http://localhost:3000/vehicle
 
-## Test
+- Get Data by Id: GET http://localhost:3000/vehicle/:id'
 
-```bash
-# unit tests
-$ yarn run test
+- Update Vehicles Info: PATCH http://localhost:3000/vehicle/:id
+- Delete Vehicles Info:DELETE http://localhost:3000/vehicle/:id
 
-# e2e tests
-$ yarn run test:e2e
+### PostMan Link
 
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+https://solar-space-119161.postman.co/workspace/mearn-developer~d1acaa05-49df-4379-8a04-9b484840409e/collection/14275048-a8092840-09bc-4b21-bbd8-3b24fff068fa?action=share&creator=14275048

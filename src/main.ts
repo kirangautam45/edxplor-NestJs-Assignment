@@ -1,15 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
- import { TransformInterceptor } from './transform.interceptor';
+import { TransformInterceptor } from './transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   app.enableCors();
   app.useGlobalPipes(new ValidationPipe());
-    app.useGlobalInterceptors(new TransformInterceptor());
+  app.useGlobalInterceptors(new TransformInterceptor());
 
   await app.listen(3000);
+
+  // const port = process.env.PORT;
+  // await app.listen(port);
+  // logger.log(`Application listening on port ${port}`);
 }
 bootstrap();
